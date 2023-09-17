@@ -1,7 +1,7 @@
 ## How to use this lab
 
 - Build dev_nr.c
- make
+`make`
 
 - Insert dev_nr module into kernel
 `sudo insmod dev_nr.ko`
