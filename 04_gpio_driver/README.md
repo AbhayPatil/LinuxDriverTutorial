@@ -1,55 +1,14 @@
 ## How to use this lab
 
-- Build dev_nr.c
-`make`
-
-- Insert dev_nr module into kernel
-`sudo insmod dev_nr.ko`
-
-- Check the module is added to kernel
-`sudo dmesg | tail`
-
-- See dev_nr listed in devices
-```
-cat /proc/devices
-sudo mknod /dev/mydevice3 c 100 0
-sudo chmod 666 /dev/mydevice3
-```
-
-- Test
-```
-gcc test.c -o test
-./test
-sudo dmesg | tail
-```
-
-
 ## Miscellaneous
 
-- MAJOR number refers to the driver. And the MINOR number refers to instance name.
+good info about gpio: 
+https://community.home-assistant.io/t/pi-4-and-gpio-issues/137136
 
-- register_chrdev() registers the device call with the VFS.
+hyper detailed raspberry pi info:
+https://pinout.xyz/pinout/pin11_gpio17/
 
-- printk must end in newline "\n" in order to print the log to dmesg - https://stackoverflow.com/questions/38822599/why-printk-doesnt-print-message-in-kernel-logdmesg
+https://projects.raspberrypi.org/en/projects/physical-computing/1
 
-- Other useful kernel APIs/utilities and their header files.
-```
-#include include/linuyx/fs.h
-alloc_chrdev_region()
-unregister_chrdev_region()
 
-#include include/linuyx/cdev.h
-cdev_init(), cdev_del()
-cdev_add()
-
-#include include/linuyx/device.h
-class_create(), class_destroy()
-device_create(), device_destory()
-
-#include include/linux/uaccess.h
-copy_to_user(), copy_from_user()
-
-#include include/linux/fs.h
-VFS structure definitions
-```
-
+very good read: https://www.raspberrypi.com/documentation/computers/raspberry-pi.html
